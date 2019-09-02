@@ -2,10 +2,12 @@ const express = require('express');
 const morgan = require('morgan');
 
 
-const AppError = require('./Api/utilities/apiError');
+const AppError = require('./Api/utilities/appError');
 const globalErrorHandler = require('./Api/middlewares/errorMiddlewares');
 
 const userRouter = require('./Api/routes/userRoute');
+const teamRouter = require('./Api/routes/teamRoute');
+
 
 const app = express();
 
@@ -26,6 +28,8 @@ app.use((req, res, next) => {
 
 // 3) ROUTES
 app.use('/api/v1/users', userRouter);
+app.use('/api/v1/teams', teamRouter);
+
 
 
 app.all('*', (req, res, next)=>{  

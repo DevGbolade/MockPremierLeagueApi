@@ -2,7 +2,7 @@ const {promisify} = require('util')
 const jwt = require('jsonwebtoken');
 const User = require ('../models/userModel');
 const catchAsync = require('../utilities/catchAsync');
-const AppError = require('../utilities/apiError');
+const AppError = require('../utilities/appError');
 
 const signToken = id =>{
    return jwt.sign({id}, process.env.SECRET_KEY, {expiresIn: process.env.JWT_EXPIRES_IN});
