@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const AppError = require('./Api/utilities/apiError');
 const globalErrorHandler = require('./Api/middlewares/errorMiddlewares');
 
-// user route
+const userRouter = require('./Api/routes/userRoute');
 
 const app = express();
 
@@ -25,6 +25,7 @@ app.use((req, res, next) => {
 });
 
 // 3) ROUTES
+app.use('/api/v1/users', userRouter);
 
 
 app.all('*', (req, res, next)=>{  
