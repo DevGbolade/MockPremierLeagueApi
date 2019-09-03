@@ -7,6 +7,8 @@ const globalErrorHandler = require('./Api/middlewares/errorMiddlewares');
 
 const userRouter = require('./Api/routes/userRoute');
 const teamRouter = require('./Api/routes/teamRoute');
+const fixtureRouter = require('./Api/routes/fixtureRoute');
+
 
 
 const app = express();
@@ -29,6 +31,9 @@ app.use((req, res, next) => {
 // 3) ROUTES
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/teams', teamRouter);
+app.use('/api/v1/fixtures', fixtureRouter);
+
+
 
 
 
