@@ -5,8 +5,8 @@ const keys = require('../utilities/config.utils');
 
 dotenv.config({ path: './config.env'});
 
-const {mongoTest, mongoUrl} = keys;
-const DB = process.env.NODE_ENV === 'test' ? mongoTest : mongoUrl;
+const {mongoTest, mongoUrl, mongoProd} = keys;
+const DB = process.env.NODE_ENV === 'test' ? mongoTest : mongoProd;
 
 mongoose
 .connect(DB, {

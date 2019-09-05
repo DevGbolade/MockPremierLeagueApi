@@ -21,11 +21,11 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));  
 };
 
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 
 app.use(express.json());
 
-// Limit requests from same API
+// // Limit requests from same API
 // const limiter = rateLimit({
 //   max: 50,
 //   windowMs: 60 * 60 * 1000,
@@ -33,8 +33,8 @@ app.use(express.json());
 // });
 // app.use('/api', limiter);
 
-// Body parser, reading data from body into req.body
-// app.use(express.json({ limit: '10kb' }));
+// // Body parser, reading data from body into req.body
+app.use(express.json({ limit: '10kb' }));
 
 
 app.use((req, res, next) => {
@@ -42,7 +42,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// 3) ROUTES
+// // 3) ROUTES
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/teams', teamRouter);
 app.use('/api/v1/fixtures', fixtureRouter);
@@ -56,7 +56,7 @@ app.all('*', (req, res, next)=>{
 });
 
 app.use(globalErrorHandler);
-
+app.get('/test', (req, res) => res.send())
 module.exports = app;
 
 
