@@ -1,6 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
-const rateLimit = require('express-rate-limit');
+// const rateLimit = require('express-rate-limit');
 
 require('./Api/models/_mongoose');
 
@@ -21,19 +21,19 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));  
 };
 
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 
 app.use(express.json());
 
-// Limit requests from same API
-const limiter = rateLimit({
-  max: 50,
-  windowMs: 60 * 60 * 1000,
-  message: 'Too many requests from this IP, please try again in an hour!'
-});
-app.use('/api', limiter);
+// // Limit requests from same API
+// const limiter = rateLimit({
+//   max: 50,
+//   windowMs: 60 * 60 * 1000,
+//   message: 'Too many requests from this IP, please try again in an hour!'
+// });
+// app.use('/api', limiter);
 
-// Body parser, reading data from body into req.body
+// // Body parser, reading data from body into req.body
 app.use(express.json({ limit: '10kb' }));
 
 
@@ -42,7 +42,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// 3) ROUTES
+// // 3) ROUTES
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/teams', teamRouter);
 app.use('/api/v1/fixtures', fixtureRouter);
@@ -56,7 +56,7 @@ app.all('*', (req, res, next)=>{
 });
 
 app.use(globalErrorHandler);
-
+app.get('/test', (req, res) => res.send())
 module.exports = app;
 
 
