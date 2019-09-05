@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  server:
+    image: project
+    build: .
+    container_name: server
+    ports:
+      - 6500:6500
+    volumes:
+      - .:/var/www
+    networks:
+      - server_network
+  mongo:
+    image: mongo:4.0.9
+    ports:
+      - 27012:27017
+    networks:
+      - server_network
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+networks:
+  server_network:
+    driver: bridge
+
