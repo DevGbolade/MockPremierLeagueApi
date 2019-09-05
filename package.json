@@ -7,7 +7,10 @@
     "start": "nodemon server.js",
     "start:dev": "SET  NODE_ENV=development &nodemon  server.js",
     "start:prod": "SET  NODE_ENV=production &nodemon  server.js",
-    "jest": "jest"
+    "test": "jest --watch"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "repository": {
     "type": "git",
@@ -26,6 +29,8 @@
   },
   "homepage": "https://github.com/rozay10/MockPremierLeagueApi#readme",
   "dependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/supertest": "^2.0.8",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^8.1.0",
@@ -35,7 +40,11 @@
     "mongoose": "^5.6.11",
     "morgan": "^1.9.1",
     "supertest": "^4.0.2",
-    "validator": "^11.1.0"
+    "validator": "^11.1.0",
+      "chai": "*",
+      "chai-http": "*",
+      "chai-spies": "^1.0.0",
+      "mocha": "*"
   },
   "devDependencies": {
     "morgan": "^1.9.1",
