@@ -10,7 +10,7 @@ ARG SECRET_KEY=justanotherrandomstring
 ARG DATABASE_ONLINE
 ARG JWT_EXPIRES_IN=90d
 
-EXPOSE 6500
+EXPOSE ${PORT}
 
 RUN npm install
 
