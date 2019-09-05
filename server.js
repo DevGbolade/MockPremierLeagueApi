@@ -1,22 +1,25 @@
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const app = require('./app');
+// const keys = require('./Api/utilities/config.utils');
 
-dotenv.config({ path: './config.env'});
-const DB = process.env.DATABASE_URL
 
-mongoose
-.connect(DB, {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useFindAndModify: false
-})
-.then( () => console.log('DB connected succesfully!'))
-.catch( err => console.log(`Cannot connect check error ${err}`));
+// dotenv.config({ path: './config.env'});
+
+// const {mongoTest, mongoUrl} = keys;
+// const DB = process.env.NODE_ENV === 'test' ? mongoTest : mongoUrl;
+
+// mongoose
+// .connect(DB, {
+//   useNewUrlParser: true,
+//   useCreateIndex: true,
+//   useFindAndModify: false
+// })
+// .then( () => console.log('DB connected succesfully!'))
+// .catch( err => console.log(`Cannot connect check error ${err}`));
+
 
 const port = process.env.PORT || 3000;
-// console.log(process.env.NODE_ENV);
-
 
 const server = app.listen(port, () => {
  console.log(`App is listening on port ${port}`); 
