@@ -5,7 +5,7 @@ WORKDIR /var/www
 COPY . /var/www
 
 ARG NODE_ENV=productiom
-ARG PORT=6500
+ARG PORT
 ARG SECRET_KEY=justanotherrandomstring
 ARG DATABASE_ONLINE
 ARG JWT_EXPIRES_IN=90d
