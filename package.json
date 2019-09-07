@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "start:dev": "SET  NODE_ENV=development &nodemon  server.js",
-    "start:prod": "SET  NODE_ENV=production & node  server.js",
+    "start:prod": "SET  NODE_ENV=production & nodemon  server.js",
     "test": "jest --watch"
   },
   "jest": {
@@ -58,5 +58,8 @@
     "prettier": "^1.17.0",
     "redis": "^2.8.0"
   
+  },
+  "engines": {
+    "node": ">=10.0.0"
   }
 }
