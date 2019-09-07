@@ -6,7 +6,7 @@ const authController = require('../controllers/authController');
 
 
 router
-.route('/')
+.route('/fixtures')
 .get(authController.protect, fixtureController.viewAllFixtures)
 .post(
     authController.protect, 
@@ -14,7 +14,7 @@ router
     fixtureController.addFixture);
 
 router
-.route('/:id')
+.route('/fixtures/:id')
 .get(authController.protect, 
     fixtureController.viewOneFixture)
 .patch(
