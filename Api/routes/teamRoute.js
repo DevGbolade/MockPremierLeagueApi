@@ -4,7 +4,7 @@ const teamController = require('../controllers/teamController');
 const authController = require('../controllers/authController');
 
 router
-.route('/')
+.route('/teams')
 .get(authController.protect, teamController.viewAllTeams)
 .post(
     authController.protect, 
@@ -12,7 +12,7 @@ router
     teamController.addTeams);
 
 router
-.route('/:id')
+.route('/teams/:id')
 .get(authController.protect, 
     teamController.viewOneTeam)
 .patch(
