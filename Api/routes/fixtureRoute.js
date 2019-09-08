@@ -7,7 +7,7 @@ const authController = require('../controllers/authController');
 
 router
 .route('/fixtures')
-.get(authController.protect, fixtureController.viewAllFixtures)
+.get(fixtureController.viewAllFixtures)
 .post(
     authController.protect, 
     authController.restrictTo('admin'), 

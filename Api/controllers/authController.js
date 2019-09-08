@@ -9,15 +9,13 @@ const signToken = id =>{
 }
 
 exports.singup = catchAsync( async (req, res, next) =>{
-    const newUser = await User.create(req.body);
-    const token = signToken(newUser._id);
+    const user = await User.create(req.body);
+    const token = signToken(user._id);
 
     res.status(201).json({
         status: 'success',
         token,
-        data: {
-            data: newUser  
-        }
+        user
     })
 });
 

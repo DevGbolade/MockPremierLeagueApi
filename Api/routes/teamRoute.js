@@ -5,7 +5,7 @@ const authController = require('../controllers/authController');
 
 router
 .route('/teams')
-.get(authController.protect, teamController.viewAllTeams)
+.get( teamController.viewAllTeams)
 .post(
     authController.protect, 
     authController.restrictTo('admin'), 
