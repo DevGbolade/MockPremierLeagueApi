@@ -55,11 +55,4 @@ test('Should login existing user', async () => {
     expect(response.body).toHaveProperty('token');
 })
 
-// test('Should not login nonexistent user', async () => {
-//    const response = await request(app).post('/api/v1/auth/signin').send({
-//         email: 'adaraey@gmail.com',
-//         password: 'thisisnotmypass'
-//     });
-//     expect(response.statusCode).toBe(400);
-// })
 
