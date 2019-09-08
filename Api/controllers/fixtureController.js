@@ -43,7 +43,7 @@ exports.pendingFixtures = catchAsync( async (req, res, next) => {
 exports.viewOneFixture = catchAsync( async (req, res, next) => {
     const fixture = await FixtureModel.findById(req.params.id);
         if (!fixture) return next(new AppError('No fixture found with that ID', 404));
-        res.status(201).json({
+        res.status(200).json({
         status: "success",
         data :{
             fixture
@@ -61,7 +61,7 @@ exports.viewAllFixtures = catchAsync( async (req, res) => {
     .paginate();
 
     const fixtures = await features.query;
-    res.status(201).json({
+    res.status(200).json({
         status: "succes",
         result: fixtures.length,
         data :{fixtures}

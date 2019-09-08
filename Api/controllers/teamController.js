@@ -30,7 +30,7 @@ exports.editTeam = catchAsync( async (req, res, next) => {
 exports.viewOneTeam = catchAsync( async (req, res, next) => {
     const team = await TeamModel.findById(req.params.id);
         if (!team) return next(new AppError('No team found with that ID', 404));
-        res.status(201).json({
+        res.status(200).json({
         status: "succes",
         data :{
             team
